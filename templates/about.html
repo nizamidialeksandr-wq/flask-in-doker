@@ -1,0 +1,27 @@
+<html>
+    <head>    
+        
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body >    
+        <div class="head">здесь будет шапка</div>
+        <div class="page">
+            <div class="menu"> 
+                <ul> 
+                    <li><a class="" href="/">главная</a></li>
+                    <li><a class="" href="/contact">связь</a></li>
+                    <li><a class="active" href="/about">о себе</a></li>
+                    <li><a class="" href="/facts">факты</a></li>
+                    <li><a class="" href="/eat">еда</a></li>
+                </ul>
+            </div>
+            <div class="content">
+                <h1><b>О себе</b></h1>
+                <p><b><i>Я занимаюсь футболом 9 лет</i></b></p>
+                <p><b><i>Учусь программированию и веб-разработке. Люблю путешествовать и познавать новые культуры.</i></b></p>
+                <p><a href="/">На главную</a></p>
+            </div>
+        </div>
+        <script src="{{ url_for('static', filename='script.js') }}"></script>
+    </body>
+</html>

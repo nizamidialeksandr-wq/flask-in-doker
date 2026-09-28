@@ -1,0 +1,33 @@
+<html>
+    <head>    
+        <script src="{{ url_for('static', filename='script.js') }}"></script>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body >    
+        <div class="head">здесь будет шапка</div>
+        <div class="page">
+            <div class="menu"> 
+                <ul>    
+                    <li><a class="" href="/">главная</a></li>
+                    <li><a class="" href="/contact">связь</a></li>
+                    <li><a class="" href="/about">о себе</a></li>
+                    <li><a href="/facts">факты</a></li>
+                    <li><a class="active" href="/eat">еда</a></li>
+                    
+                </ul>
+            </div>
+            <div class="content">
+                <h1>Любимая еда</h1>
+                <p>Заполни форму — сервер покажет, что ты отправил.</p>
+                <form action="/eat" method="post">
+                <p>Любимое блюдо: <input type="text" name="name"></p>
+                <p>Любимая закуска: <input type="text" name="age"></p>
+                <p>Любимая сладость: <input type="text" name="message"></p>
+                <button type="submit">Отправить</button>
+                </form>
+                <p><a href="/">На главную</a></p>
+            </div>
+        </div>
+        <div class="footer">здесь будет подвал</div>
+    </body>
+</html>

@@ -1,0 +1,46 @@
+<html>
+    <head>    
+        <script src="{{ url_for('static', filename='script.js') }}"></script>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <script>
+            console.log("Hello World");
+        </script>
+    </head>
+    <body >    
+        <div class="head">здесь будет шапка</div>
+        <div class="page">
+            <div class="menu"> 
+                <ul>   
+
+                    <li>
+                        <img src="https://cdn-icons-png.flaticon.com/128/1946/1946436.png" loading="lazy" alt="Дом " title="Дом " width="30"  height="30">
+                        <a class="active" href="/">главная</a>
+                    </li>
+                    <li>
+                        <img src="https://cdn-icons-png.flaticon.com/128/16528/16528946.png" loading="lazy" alt="Связь " title="Связь " width="30" height="30">
+                        <a class="" href="/contact">связь</a>
+                    </li>
+                    <li>
+                        <img src="https://cdn-icons-png.flaticon.com/128/17/17004.png" loading="lazy" alt="Изображение пользователя на черном фоне " title="Изображение пользователя на черном фоне " width="30" height="30">
+                        <a class="" href="/about">о себе</a>
+                    </li>
+                    <li>
+                        <img src="https://cdn-icons-png.flaticon.com/128/13528/13528397.png" loading="lazy" alt="Факты " title="Факты " width="30" height="30">
+                        <a class="" href="/facts">факты</a>
+                    </li>
+                    <li>
+                        <img src="https://cdn-icons-png.flaticon.com/128/8893/8893003.png" loading="lazy" alt="Обед " title="Обед " width="30" height="30">
+                        <a class="" href="/eat">твоя любимая еда</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <div class="content">
+                <p>1 парграф</p>
+                <img  src="https://st1.zoom.us/maintenance/12042025-0950/my-notes/dist/assets/zoommedia/never-forget-to-take-notes.jpg">
+                <p>2 парграф</p>
+            </div>
+        </div>
+        <div class="footer">здесь будет подвал</div>
+    </body>
+</html>
