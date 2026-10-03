@@ -1,3 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Связь{% endblock %}
+
+{% block content %}
+    <h1>Обратная связь</h1>
+    <div class="content_center">
+        <p>Заполни форму — сервер покажет, что ты отправил.</p>
+        <form action="{{ url_for('contact') }}" method="post">
+            <p>Имя: <input id="name" class="float_right" type="text" name="name"></p>
+            <p>Проблема: <input id="problem" class="float_right" type="text" name="problem"></p>
+            <p>Опишите подробно ситацию: <input id="description" class="float_right" type="text" name="description"></p>
+            <p>Адрес: <input id="adress" class="float_right" type="text" name="adress"></p>
+            <button id="button_submit" class="button_submit" type="submit">Отправить</button>
+            <div id="toast" class="toast hidden">тут будет ответ сервера </div>
+            <div id="error" class="error hidden">тут будет текст ошибки </div>
+        </form>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
 <html>
     <head>    
         
@@ -22,7 +51,7 @@
                 <h1>Обратная связь</h1>
                 <div class="content_center">
                     <p>Заполни форму — сервер покажет, что ты отправил.</p>
-                    <form action="/contact" method="post">
+                    <form action="{{ url_for('contact') }}" method="post">
                         <p>Имя: <input id="name" class="float_right" type="text" name="name"></p>
                         <p>Проблема: <input id="problem" class="float_right" type="text" name="problem"></p>
                         <p>Опишите подробно ситацию: <input id="description" class="float_right" type="text" name="description"></p>

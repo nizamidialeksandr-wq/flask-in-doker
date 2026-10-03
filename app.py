@@ -3,31 +3,26 @@ from flask import render_template
 
 app = Flask(__name__)
 
-
-# @app.route("/")
-# def hello():
-#     return render_template("index.html")
-
-
-
-# @app.route("/hello")
-# def hello_name():
-#     nameparams = request.args.get("name", "незнакомец")
-#     return render_template("greating.html", name=nameparams)
-
-# @app.route("/1234")
-# def one_two_three():
-#     a = request.args.get("a", 0)
-#     b = request.args.get("b", 0)
-#     return str(int(a) + int(b))
-
 @app.route("/")
 def home():
     return render_template("home.html")
 
-@app.route("/contact")
+@app.route("/contact", methods=["GET", "POST"], endpoint="contact")
 def contact():
-    return render_template("contact.html")
+    if request.method == "GET":
+        return render_template("contact.html")
+    elif request.method == "POST":
+        name = request.form["name"]
+        problem = request.form["problem"]
+        description = request.form["description"]
+        adress = request.form["adress"]
+        return render_template(
+            "answer.html",
+            name=name,
+            problem=problem,
+            description=description,
+            adress=adress,
+        )
 
 @app.route("/about")
 def about():
@@ -40,3 +35,15 @@ def facts():
 @app.route("/eat")
 def eat():
     return render_template("eat.html")
+
+@app.route("/test")
+def test():
+    return render_template("test.html")
+
+
+
+
+
+
+
+
