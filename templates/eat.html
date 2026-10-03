@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Еда{% endblock %}
+
+{% block content %}
+    <h1>Любимая еда</h1>
+    <p>Заполни форму — сервер покажет, что ты отправил.</p>
+    <form action="/eat" method="post">
+        <p>Любимое блюдо: <input type="text" name="name"></p>
+        <p>Любимая закуска: <input type="text" name="age"></p>
+        <p>Любимая сладость: <input type="text" name="message"></p>
+        <button type="submit">Отправить</button>
+    </form>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
