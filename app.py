@@ -21,6 +21,15 @@ def contact():
         problem = request.form["problem"]
         description = request.form["description"]
         adress = request.form["adress"]
+
+        conn = get_db()
+        conn.execute(
+            "INSERT INTO messages (name, problem, description, adress) VALUES (?, ?, ?, ?)",
+            (name, problem, description, adress),
+        )
+        conn.commit()
+        conn.close()
+
         return render_template(
             "answer.html",
             name=name,
@@ -44,11 +53,3 @@ def eat():
 @app.route("/test")
 def test():
     return render_template("test.html")
-
-
-
-
-
-
-
-
