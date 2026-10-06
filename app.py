@@ -1,7 +1,12 @@
 from flask import Flask, request
 from flask import render_template
 
+from db import get_db, init_db
+
 app = Flask(__name__)
+
+# при старте приложения создаём таблицу, если её ещё нет
+init_db()
 
 @app.route("/")
 def home():
