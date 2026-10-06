@@ -179,3 +179,20 @@ p .border.green {
 }
 
 
+
+/* таблица обращений на странице /messages */
+.messages {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.messages th,
+.messages td {
+    border: 1px solid #ccc;
+    padding: 6px 10px;
+    text-align: left;
+}
+
+.messages th {
+    background: #f0f0f0;
+}

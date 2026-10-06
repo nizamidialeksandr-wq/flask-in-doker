@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Обращения{% endblock %}
+
+{% block content %}
+    <h1>Обращения</h1>
+
+    {% if messages %}
+        <p>Всего: {{ messages|length }}</p>
+        <table class="messages">
+            <tr>
+                <th>№</th>
+                <th>Когда</th>
+                <th>Имя</th>
+                <th>Проблема</th>
+                <th>Описание</th>
+                <th>Адрес</th>
+            </tr>
+            {% for m in messages %}
+                <tr>
+                    <td>{{ m["id"] }}</td>
+                    <td>{{ m["created_at"] }}</td>
+                    <td>{{ m["name"] }}</td>
+                    <td>{{ m["problem"] }}</td>
+                    <td>{{ m["description"] }}</td>
+                    <td>{{ m["adress"] }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>Пока пусто. Отправь форму на странице «связь».</p>
+    {% endif %}
+{% endblock %}

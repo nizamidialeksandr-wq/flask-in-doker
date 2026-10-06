@@ -1,7 +1,12 @@
 from flask import Flask, request
 from flask import render_template
 
+from db import get_db, init_db
+
 app = Flask(__name__)
+
+# при старте приложения создаём таблицу, если её ещё нет
+init_db()
 
 @app.route("/")
 def home():
@@ -16,6 +21,15 @@ def contact():
         problem = request.form["problem"]
         description = request.form["description"]
         adress = request.form["adress"]
+
+        conn = get_db()
+        conn.execute(
+            "INSERT INTO messages (name, problem, description, adress) VALUES (?, ?, ?, ?)",
+            (name, problem, description, adress),
+        )
+        conn.commit()
+        conn.close()
+
         return render_template(
             "answer.html",
             name=name,
@@ -23,6 +37,13 @@ def contact():
             description=description,
             adress=adress,
         )
+
+@app.route("/messages")
+def messages():
+    conn = get_db()
+    rows = conn.execute("SELECT * FROM messages ORDER BY id DESC").fetchall()
+    conn.close()
+    return render_template("messages.html", messages=rows)
 
 @app.route("/about")
 def about():
@@ -39,11 +60,3 @@ def eat():
 @app.route("/test")
 def test():
     return render_template("test.html")
-
-
-
-
-
-
-
-
