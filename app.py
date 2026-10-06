@@ -38,6 +38,13 @@ def contact():
             adress=adress,
         )
 
+@app.route("/messages")
+def messages():
+    conn = get_db()
+    rows = conn.execute("SELECT * FROM messages ORDER BY id DESC").fetchall()
+    conn.close()
+    return render_template("messages.html", messages=rows)
+
 @app.route("/about")
 def about():
     return render_template("about.html")
