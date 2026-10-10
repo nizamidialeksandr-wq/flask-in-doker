@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}таблица{% endblock %}
+
+{% block content %}
+    <h1>Обращения</h1>
+
+    {% if orders %}
+        <p>Всего: {{ orders|length }}</p>
+        {{ orders }}
+        <table class="orders">
+            <tr>
+                <th>Имя</th>
+                <th>Проблема</th>
+                <th>Описание</th>
+                <th>Адрес</th>
+            </tr>
+            {% for m in orders %}
+                <tr>
+                    <td>{{ m["name"] }}</td>
+                    <td>{{ m["problem"] }}</td>
+                    <td>{{ m["description"] }}</td>
+                    <td>{{ m["adress"] }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>Пока пусто. Отправь форму на странице «связь».</p>
+    {% endif %}
+{% endblock %}

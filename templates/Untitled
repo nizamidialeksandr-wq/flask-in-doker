@@ -1,9 +1,0 @@
-{% extends "base.html" %}
-
-{% block title %}Главная{% endblock %}
-
-{% block content %}
-    <p>1 парграф123</p>
-    <img src="https://st1.zoom.us/maintenance/12042025-0950/my-notes/dist/assets/zoommedia/never-forget-to-take-notes.jpg">
-    <p>2 парграф</p>
-{% endblock %}
