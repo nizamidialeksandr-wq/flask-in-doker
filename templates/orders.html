@@ -7,13 +7,15 @@
 
     {% if orders %}
         <p>Всего: {{ orders|length }}</p>
-        {{ orders }}
         <table class="orders">
             <tr>
                 <th>Имя</th>
                 <th>Проблема</th>
                 <th>Описание</th>
                 <th>Адрес</th>
+                <th>Номер телефона</th>
+                <th>Почта</th>
+                <th>Удобное для вас время</th>
             </tr>
             {% for m in orders %}
                 <tr>
@@ -21,6 +23,9 @@
                     <td>{{ m["problem"] }}</td>
                     <td>{{ m["description"] }}</td>
                     <td>{{ m["adress"] }}</td>
+                    <td>{{ m["phone_number"] }}</td>
+                    <td>{{ m["mail"] }}</td>
+                    <td>{{ m["time"] }}</td>
                 </tr>
             {% endfor %}
         </table>

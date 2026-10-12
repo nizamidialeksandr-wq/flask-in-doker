@@ -11,8 +11,11 @@ button.addEventListener("click", function (event) {
     var problem = document.getElementById("problem").value;
     var description = document.getElementById("description").value;
     var adress = document.getElementById("adress").value;
+    var phone_number = document.getElementById("phone_number").value;
+    var mail = document.getElementById("mail").value;
+    var time = document.getElementById("time").value;
     
-    console.log("Имя:", name, "Проблема:", problem, "Описание:", description, "Адрес:", adress);
+    console.log("Имя:", name, "Проблема:", problem, "Описание:", description, "Адрес:", adress, "Номер телефона:", phone_number, "Почта:", mail, "Удобное для вас время:", time);
 
     // валидация: ищем первое незаполненное поле
     var empty = "";
@@ -22,6 +25,12 @@ button.addEventListener("click", function (event) {
         empty = "Не заполнено поле: проблема";
     } else if (description === "") {
         empty = "Не заполнено поле: описание ситуации";
+    } else if (phone_number === "") {
+        empty = "Не заполнено поле: номер телефона";
+    } else if (mail === "") {
+        empty = "Не заполнено поле: почта";
+    } else if (time === "") {
+        empty = "Не заполнено поле: удобное для вас время";
     }
     else if (adress.length < 5) {
         empty = "адрес должен быть не менее 5 символов";
@@ -45,7 +54,10 @@ button.addEventListener("click", function (event) {
             name: name,
             problem: problem,
             description: description,
-            adress: adress
+            adress: adress,
+            phone_number: phone_number,
+            mail: mail,
+            time: time,
             
         })
     })
@@ -53,7 +65,6 @@ button.addEventListener("click", function (event) {
             return response.text();
         })
         .then(function (text) {
-            console.log("ответ сервера:", text);
             
             toast.classList.remove("hidden");
             toast.innerHTML = text;
@@ -62,11 +73,10 @@ button.addEventListener("click", function (event) {
             document.getElementById("problem").value = "";
             document.getElementById("description").value = "";
             document.getElementById("adress").value = "";
+            document.getElementById("phone_number").value = "";
+            document.getElementById("mail").value = "";
+            document.getElementById("time").value = "";
 
-            // таймер: через 5 секунд прячем сообщение обратно
-            // setTimeout(function () {
-            //     toast.classList.add("hidden");
-            // }, 5000);
         })
         .catch(function (err) {
             error.textContent = "Не отправилось: " + err;

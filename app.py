@@ -17,6 +17,10 @@ def contact():
         problem = request.form["problem"]
         description = request.form["description"]
         adress = request.form["adress"]
+        phone_number = request.form["phone_number"]
+        mail = request.form["mail"]
+        time = request.form["time"]
+
 
 
 
@@ -27,10 +31,13 @@ def contact():
                 name TEXT NOT NULL,
                 problem TEXT NOT NULL,
                 description TEXT NOT NULL,
-                adress TEXT NOT NULL
+                adress TEXT NOT NULL,
+                phone_number TEXT NOT NULL,
+                mail TEXT NOT NULL,
+                time TEXT NOT NULL
             )
         """)
-        conn.execute("INSERT INTO orders (name, problem, description, adress) VALUES (?, ?, ?, ?)", (name, problem, description, adress))
+        conn.execute("INSERT INTO orders (name, problem, description, adress, phone_number, mail, time) VALUES (?, ?, ?, ?, ?, ?, ?)", (name, problem, description, adress, phone_number, mail, time))
         conn.commit()
         conn.close()
 
@@ -42,6 +49,9 @@ def contact():
             problem=problem,
             description=description,
             adress=adress,
+            phone_number=phone_number,
+            mail=mail,
+            time=time,
         )
 
 @app.route("/about")
